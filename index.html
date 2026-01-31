@@ -1,46 +1,282 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head prefix="og:http://ogp.me/ns#">
-<meta charset="utf-8">
-<!--OGPはじまり-->
-<meta property="og:title" content="空箱.win">
-<meta property="og:description" content="空箱だよ。遊ぶのに使うかも？ - 管理者:だいちまる(daichimarukana)">
-<meta property="og:url" content="https://emptybox.win/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="空箱.win">
-<!--OGPここまで-->
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>空箱.win</title>
+    <meta charset="utf-8">
+    <!--OGPはじまり-->
+    <meta property="og:title" content="空箱.win">
+    <meta property="og:description" content="空箱だよ。遊ぶのに使うかも？">
+    <meta property="og:url" content="https://emptybox.win/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="空箱.win">
+    <!--OGPここまで-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="js/jquery-4.0.0.min.js"></script>
+    <title>空箱.win</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&display=swap');
+
+        body {
+            margin: 0px;
+            background: linear-gradient(0deg, transparent 31px, #CCC 32px), linear-gradient(90deg, transparent 31px, #CCC 32px);
+            background-size: 32px 32px;
+            animation: move-grid 2s linear infinite;
+            display: flex;
+            overflow: hidden;
+        }
+
+        @keyframes move-grid {
+            from {
+                background-position: 0 0, 0 0;
+            }
+
+            to {
+                background-position: 0 32px, 0 0;
+            }
+        }
+
+        .bg-star {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .bg-star .star {
+            color: transparent;
+            text-shadow: 0 0 0 #F51F75;
+        }
+
+        .bg-bottom {
+            position: absolute;
+            bottom: 16px;
+            right: 200px;
+            height: 2px;
+            width: 100%;
+        }
+
+        .bg-image {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            max-height: 100dvh;
+            width: fit-content;
+            overflow: hidden;
+        }
+
+        .bg-image img {
+            position: relative;
+            bottom: -128px;
+            right: -128px;
+            width: 640px;
+        }
+
+        .sider {
+            position: relative;
+            left: -48px;
+            background-color: #F51F75;
+            padding: 0px 48px;
+            width: fit-content;
+            height: 100dvh;
+            transform: skewX(-5deg);
+            overflow: auto;
+        }
+
+        .sider h1 {
+            font-size: 48px;
+            color: #FFFFFF;
+            font-family: "Inter", sans-serif;
+            margin-bottom: 0px;
+        }
+
+        .sider p {
+            font-size: 12px;
+            color: #FFFFFF;
+            font-family: "Inter", "Noto Sans JP", sans-serif;
+        }
+
+        .sider .in_box {
+            width: calc(100% - 148px);
+            position: absolute;
+            left: 112px;
+            bottom: 24px;
+            transform: skewX(5deg);
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .sider .in_box img {
+            width: 64px;
+            height: 64px;
+        }
+
+        .sider .in_box a {
+            margin-left: auto;
+            margin-right: 0px;
+            margin-bottom: 4px;
+            font-family: "Inter", "Noto Sans JP", sans-serif;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .main {
+            width: fit-content;
+            position: relative;
+            left: 16px;
+            font-family: "Inter", "Noto Sans JP", sans-serif;
+        }
+
+        .main p {
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .main a {
+            color: #F51F75;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #8a1df0;
+        }
+
+        .normal-hr {
+            border: none;
+            border-bottom: solid 1px #F51F75;
+            width: 100%;
+            margin: 0;
+        }
+
+        .moving-hr {
+            border: none;
+            height: 2px;
+            width: 100%;
+            margin: 0;
+            background-image: linear-gradient(to right, #F51F75 50%, transparent 50%);
+            background-size: 15px 100%;
+            background-repeat: repeat-x;
+
+            animation: move-hr 0.5s linear infinite;
+        }
+
+        @keyframes move-hr {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 15px 0;
+            }
+        }
+
+        .star {
+            position: absolute;
+            font-size: 24px;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        @media screen and (max-width:1000px) {
+            .main {
+                width: calc(100% - 32px);
+            }
+
+            .sider {
+                display: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<h1>空箱.win</h1>
-<h3><a href="https://emptybox.win/">emptybox.win</a>へようこそ！</h3>
-<p>このドメインはだいちまるが遊ぶために取得したドメインです！<br>これといって今のところコンテンツはありませんがご了承ください！</p>
-<hr>
-<h3>だいちまる関連のリンク↓</h3>
-<p>Twitter(X) : <a href="https://twitter.com/daichimarukana">https://twitter.com/daichimarukana</a></p>
-<p>dev.uwuzu.net : <a href="https://dev.uwuzu.net/@daichimarukana">https://dev.uwuzu.net/@daichimarukana</a></p>
-<p>YouTube: <a href="https://youtube.com/@daichimarukana">https://youtube.com/@daichimarukana</a></p>
+    <div class="bg-star">
+    </div>
+
+    <div class="bg-image">
+        <img src="asset/kawaii.png" alt="Kawaii Illust">
+    </div>
+
+    <div class="bg-bottom">
+        <hr class="moving-hr">
+    </div>
+
+    <div class="sider">
+        <h1>emptybox.win</h1>
+        <p id="winner_subtitle">勝者の空箱</p>
+        <div class="in_box">
+            <img src="asset/in.png" alt="印">
+            <a href="https://daichimarukana.com/" target="_blank">@daichimarukana</a>
+        </div>
+    </div>
+    <div class="main">
+        <h1><a href="https://emptybox.win/">emptybox.win</a>へようこそ！</h1>
+        <p>このドメインはだいちまるが遊ぶために取得したドメインです！<br>これといって今のところコンテンツはありませんがご了承ください！</p>
+        <hr class="normal-hr">
+        <h2>Irona Links!</h2>
+        <p>uwuzu.net : <a href="https://uwuzu.net/@daichimarukana">https://uwuzu.net/@daichimarukana</a> ← Meccha Nice SNS</p>
+        <p>Twitter(X) : <a href="https://twitter.com/daichimarukana">https://twitter.com/daichimarukana</a></p>
+        <p>dev.uwuzu.net : <a href="https://dev.uwuzu.net/@daichimarukana">https://dev.uwuzu.net/@daichimarukana</a></p>
+        <p>YouTube: <a href="https://youtube.com/@daichimarukana">https://youtube.com/@daichimarukana</a></p>
+        <h2>Tonight's dinner!</h2>
+        <p id="yorugohan"></p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            const welcomes = ["勝者の空箱", "空箱", "空箱.win", "空箱ドットウィン", "空箱.勝", "エンプティボックスドットウィン", "空箱は勝ったらしい", "空箱もゆっくりしてってって言ってる", "昇華のために", "空箱とダンス", "空箱につぶされるーー", "創作、しよー！", "ダンスしたいな"];
+            const selected = welcomes[Math.floor(Math.random() * welcomes.length)];
+
+            $("#winner_subtitle").text(selected);
+
+            const firstNames = [
+                "シェフの気まぐれ", "宮下の気まぐれ", "黄金の", "灼熱の", "禁断の", "田中さんの",
+                "伝説の", "終焉の", "無限の", "至高の", "孤独なる", "デス", "絶体絶命", "ハイパー激ウマ", "鮭"
+            ];
+
+            const secondNames = [
+                "カレーライス", "オムライス", "ラーメン", "ハンバーグ",
+                "パスタ", "焼肉", "納豆ご飯", "うどん", "お刺身", "味噌汁", "お漬物", "ドリアン", "ご飯"
+            ];
+
+            $("#yorugohan").text(firstNames[Math.floor(Math.random() * firstNames.length)] + secondNames[Math.floor(Math.random() * secondNames.length)]);
+
+
+            setInterval(function () {
+                const stars = ['💫', '⭐', '✨', '☄️', '★', '＊', '✦', '🪐'];
+                const startPosX = Math.random() * $(window).width();
+                const startPosY = -250;
+                const duration = 2000 + Math.random() * 3000;
+
+                const randomIndex = Math.floor(Math.random() * stars.length);
+                const selected = stars[randomIndex];
+                const star = $('<div class="star">' + selected + '</div>').appendTo('.bg-star');
+
+                star.css({
+                    left: startPosX,
+                    top: startPosY,
+                    opacity: 1
+                });
+
+                star.animate({
+                    left: startPosX - (400 + Math.random() * 50),
+                    top: $(window).height() + 50,
+                    opacity: 0
+                }, duration, 'swing', function () {
+                    $(this).remove();
+                });
+            }, 10000);
+        });
+    </script>
+    <script>
+        console.log(
+            "%c見たな%c\n%c別に見たっていいよ\nまた遊びにおいで～%c",
+            "color:#FF4848; background-color:#000; padding:4px; border-radius:4px; font-weight: bold; font-size: 72pt; font-family:serif;",
+            "",
+            "color:#000; margin-top:6px; font-weight: normal; font-size: 8pt; font-family:sans-serif;",
+            "",
+        );
+    </script>
 </body>
-<style>
-    p{
-        margin-top: 6px;
-        margin-bottom: 6px;
-    }
-    a{
-        color: #1d9bf0;
-        text-decoration:none;
-    }
-    a:visited{
-        color: #8a1df0;
-    }
-</style>
-<script>
-    console.log(
-        "%c見たな%c\n%c別に見たっていいよ～\nまた遊びにおいで～%c",
-        "color:#FF4848; background-color:#000; padding:4px; border-radius:4px; font-weight: bold; font-size: 64pt; font-family:serif;",
-        "",
-        "color:#000; margin-top:6px; font-weight: normal; font-size: 10pt; font-family:sans-serif;",
-        "",
-    );
-</script>
